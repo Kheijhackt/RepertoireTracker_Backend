@@ -1,0 +1,78 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.pip-selfcheck.json
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+media/
+staticfiles/
+static_root/
+local_settings.py
+
+# Environment variables
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Testing
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+htmlcov/
+junit.xml
+
+# Build stuff
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Migrations (optional – keep if you want full control manually)
+**/migrations/*.py
+**/migrations/__pycache__/
+
+# Node.js (if ever used in frontend)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Pipenv/Poetry
+Pipfile.lock
+poetry.lock
