@@ -1,5 +1,5 @@
 # Python bytecode
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
@@ -56,10 +56,6 @@ build/
 dist/
 *.egg-info/
 .eggs/
-
-# Migrations (optional – keep if you want full control manually)
-**/migrations/*.py
-**/migrations/__pycache__/
 
 # Node.js (if ever used in frontend)
 node_modules/
