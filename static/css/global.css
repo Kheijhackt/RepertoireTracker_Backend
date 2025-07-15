@@ -1,0 +1,266 @@
+/* Import Nunito font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --pink: #FF5C8D;
+  --dark: #202020;
+  --dark2: #303030;
+  --dark3: #404040;
+  --text-color: #f8f8f8;
+  --muted-text: #aaaaaa;
+  --border-radius: 12px;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  transition: var(--transition);
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--text-color);
+  padding: 1rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+a {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--pink);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+ul, ol {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+button, input[type="submit"], input[type="button"] {
+  background-color: var(--pink);
+  color: var(--dark);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #ff77a3;
+}
+
+input, textarea, select {
+  background-color: var(--dark2);
+  color: var(--text-color);
+  border: 1px solid var(--dark3);
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--pink);
+  outline: none;
+}
+
+form {
+  background-color: var(--dark2);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--dark3);
+  margin: 1rem 0;
+}
+
+code, pre {
+  background-color: var(--dark3);
+  color: var(--pink);
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--dark2);
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--dark3);
+}
+
+th {
+  background-color: var(--dark3);
+  color: var(--pink);
+  font-weight: 700;
+}
+
+td {
+  font-weight: 600;
+}
+
+blockquote {
+  padding: 1rem;
+  background-color: var(--dark3);
+  border-left: 4px solid var(--pink);
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--muted-text);
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.screenshot-section {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.screenshot-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.screenshot-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.screenshot-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: var(--border-radius);
+  /* ❌ Remove border and shadow for transparent screenshots */
+  box-shadow: none;
+  border: none;
+  flex-shrink: 0;
+}
+
+
+.screenshot-text {
+  max-width: 500px;
+  color: var(--text-color);
+}
+
+.screenshot-text h3 {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--pink);
+}
+
+.screenshot-text ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  color: var(--muted-text);
+}
+
+.about-note {
+  margin: 3rem auto;
+  text-align: center;
+  color: var(--text-color);
+  padding: 1rem 0;
+}
+
+
+.about-note h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--pink);
+}
+
+.about-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #FF5C8D, #ff7ba8);
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 14px rgba(255, 92, 141, 0.25);
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 92, 141, 0.4);
+}
