@@ -264,3 +264,12 @@ img {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 92, 141, 0.4);
 }
+
+.title-icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  scale: 1.75;
+}
