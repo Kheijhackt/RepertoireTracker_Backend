@@ -170,15 +170,6 @@ img {
   padding: 1rem;
 }
 
-.title-icon {
-  width: 5rem;
-  height: 5rem;
-  max-width: 80px;
-  max-height: 80px;
-  vertical-align: middle;
-  margin-right: 0.5rem;
-}
-
 .screenshot-section {
   margin-top: 3rem;
   display: flex;
