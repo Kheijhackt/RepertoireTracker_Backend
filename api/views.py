@@ -5,11 +5,28 @@ from .models import AppUser
 from .serializers import AppUserSerializer
 from rest_framework.permissions import AllowAny
 
+def get_user_by_token(request):
+    auth_header = request.headers.get("Authorization")
+
+    if not auth_header:
+        return None, Response({'error': 'Token required'}, status=400)
+
+    # Optional: support `Token <token>` format if needed
+    token = auth_header.split(" ")[-1].strip()
+
+    try:
+        user = AppUser.objects.get(token=token)
+        return user, None
+    except AppUser.DoesNotExist:
+        return None, Response({'error': 'Invalid token'}, status=400)
+
+
 class SignupView(APIView):
     def post(self, request):
         serializer = AppUserSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            user = serializer.save()
+            user.generate_token()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
@@ -25,45 +42,53 @@ class LoginView(APIView):
 
         if not user.check_password(password):
             return Response({'error': 'Invalid username or password'}, status=400)
+        
+        if user.token is None:
+            user.generate_token()
+            user.save()
 
         return Response({
-            'username': user.username,
-            'display_name': user.display_name
+            "username": user.username,
+            "display_name": user.display_name,
+            "token": user.token
         })
 
 class UserUpdateView(APIView):
     def patch(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
+        # Step 1: Get token from header
+        token = request.headers.get('Authorization')
+        if not token:
+            return Response({'error': 'Authorization token required'}, status=401)
 
-        if not username or not password:
-            return Response({'error': 'Username and password required'}, status=400)
-
+        # Step 2: Find user by token
         try:
-            user = AppUser.objects.get(username=username)
+            user = AppUser.objects.get(token=token)
         except AppUser.DoesNotExist:
-            return Response({'error': 'User not found'}, status=404)
+            return Response({'error': 'Invalid token'}, status=401)
 
+        # Step 3: Require password in body and verify it
+        password = request.data.get('password')
+        if not password:
+            return Response({'error': 'Password required'}, status=400)
         if not user.check_password(password):
             return Response({'error': 'Invalid password'}, status=400)
 
-        # Update display name
+        # Step 4: Update display name
         new_display_name = request.data.get('display_name')
         if new_display_name:
             user.display_name = new_display_name
 
-        # Update password
+        # Step 5: Update password
         new_password = request.data.get('new_password')
         if new_password:
             user.set_password(new_password)
 
-        # Update username (no 90-day rule)
+        # Step 6: Update username (no 90-day rule)
         new_username = request.data.get('new_username')
         if new_username and new_username != user.username:
             if AppUser.objects.filter(username=new_username).exists():
                 return Response({'error': 'Username already taken'}, status=400)
             user.username = new_username
-
 
         user.save()
         serializer = AppUserSerializer(user)
@@ -72,20 +97,13 @@ class UserUpdateView(APIView):
     
 class BackupView(APIView):
     def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
+        user, error = get_user_by_token(request)
+        if error:
+            return error
+
         repertoire = request.data.get('repertoire')
-
-        if not username or not password or repertoire is None:
-            return Response({'error': 'Username, password, and repertoire required'}, status=400)
-
-        try:
-            user = AppUser.objects.get(username=username)
-        except AppUser.DoesNotExist:
-            return Response({'error': 'Invalid username or password'}, status=400)
-
-        if not user.check_password(password):
-            return Response({'error': 'Invalid username or password'}, status=400)
+        if repertoire is None:
+            return Response({'error': 'Repertoire required'}, status=400)
 
         user.repertoire = repertoire
         user.save()
@@ -93,19 +111,9 @@ class BackupView(APIView):
 
 class RestoreView(APIView):
     def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-
-        if not username or not password:
-            return Response({'error': 'Username and password required'}, status=400)
-
-        try:
-            user = AppUser.objects.get(username=username)
-        except AppUser.DoesNotExist:
-            return Response({'error': 'Invalid username or password'}, status=400)
-
-        if not user.check_password(password):
-            return Response({'error': 'Invalid username or password'}, status=400)
+        user, error = get_user_by_token(request)
+        if error:
+            return error
 
         return Response({'repertoire': user.repertoire}, status=200)
 
