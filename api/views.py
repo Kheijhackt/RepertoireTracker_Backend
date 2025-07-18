@@ -117,4 +117,18 @@ class RestoreView(APIView):
 
         return Response({'repertoire': user.repertoire}, status=200)
 
+class DeleteAccountView(APIView):
+    def delete(self, request):
+        user, error = get_user_by_token(request)
+        if error:
+            return error
 
+        password = request.data.get("password")
+        if not password:
+            return Response({'error': 'Password required'}, status=400)
+
+        if not user.check_password(password):
+            return Response({'error': 'Incorrect password'}, status=403)
+
+        user.delete()
+        return Response({'message': 'Account deleted successfully.'}, status=200)
