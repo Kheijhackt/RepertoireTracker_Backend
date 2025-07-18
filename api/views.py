@@ -57,18 +57,18 @@ class UserUpdateView(APIView):
         if new_password:
             user.set_password(new_password)
 
-        # Update username (90-day rule)
+        # Update username (no 90-day rule)
         new_username = request.data.get('new_username')
         if new_username and new_username != user.username:
-            if not user.can_change_username():
-                return Response({'error': 'Username can only be changed every 90 days'}, status=400)
             if AppUser.objects.filter(username=new_username).exists():
                 return Response({'error': 'Username already taken'}, status=400)
-            user.change_username(new_username)
+            user.username = new_username
+
 
         user.save()
         serializer = AppUserSerializer(user)
         return Response(serializer.data)
+
     
 class BackupView(APIView):
     def post(self, request):
