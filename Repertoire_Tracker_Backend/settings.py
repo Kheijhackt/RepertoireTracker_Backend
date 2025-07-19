@@ -60,9 +60,15 @@ ROOT_URLCONF = 'Repertoire_Tracker_Backend.urls'
 
 CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=False, cast=bool)
 
-# CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default=[], cast=Csv())
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default=['https://repertoiretracker.pythonanywhere.com'], cast=Csv())
 
 CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', default=True, cast=bool)
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",  # Only return raw JSON, no HTML
+    ]
+}
 
 TEMPLATES = [
     {
