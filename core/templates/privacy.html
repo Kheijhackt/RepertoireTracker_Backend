@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Privacy Policy - Repertoire Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        h3 {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center" style="max-width: 1000px; margin: 3rem auto;">
+        <h1>📜 Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> July 2025</p>
+    </div>
+
+    <div class="container" style="max-width: 1000px; margin: 3rem auto;">
+        <h3>1. Information We Collect</h3>
+        <p>We do not collect any personally identifiable information (such as real name, email address,
+            phone number, or
+            location).
+        </p>
+        <p>The app only asks for:</p>
+        <ul style="text-align: left;">
+            <li><strong>Username</strong> – any name you choose, used to log in and manage your backups</li>
+            <li><strong>Display Name</strong> – used for greetings within the app only; it can be anything</li>
+            <li><strong>Password</strong> – required to protect your data and manage backups</li>
+            <li><strong>Token</strong> – a randomly generated string provided after login, used only to authorize API
+                requests like backup, restore, or updating credentials</li>
+        </ul>
+        <p>None of this information is verified, linked to your identity, or shared with third parties.</p>
+
+        <h3>2. Data Storage</h3>
+        <p>
+            Data is stored:
+        <ul style="text-align: left;">
+            <li>Locally on the device using <a href="https://react-native-async-storage.github.io/async-storage/"
+                    target="_blank">
+                    AsyncStorage</a> for automatic login at startup
+            </li>
+            <li>On our secure server for backup and restore feature</li>
+        </ul>
+        We don’t access your device files, media, or contacts.
+        </p>
+
+        <h3>3. Security</h3>
+        <ul>
+            <li>Passwords are hashed before being stored on the server</li>
+            <li>We use secure one-time tokens to authorize API requests. These tokens
+                are stored locally on the device and are never exposed to third parties</li>
+            <li>All communication between the app and our server uses HTTPS encryption</li>
+        </ul>
+
+        <h3>4. Your Control</h3>
+        <p>The user may:</p>
+        <ul>
+            <li>Clear app data and uninstall the app anytime to erase stored credentials</li>
+            <li>Update their user credentials securely through the app</li>
+            <li>Delete their account stored on our server</li>
+        </ul>
+
+        <h3>5. Contact</h3>
+        <p>If you have any concerns, contact us at <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=banana.illukit@gmail.com" target="_blank">
+                banana.illukit@gmail.com
+            </a></p>
+
+        <div style="padding: 5rem; flex-direction: row; display: flex; justify-content: end;">
+            <a href="/">
+                <button class="casual-btn">← Back to Home</button>
+            </a>
+        </div>
+    </div>
+
+    <footer class="text-center" style="margin-top: 4rem; font-size: 0.9rem; color: var(--muted-text);">
+        &copy; 2025 Repertoire Tracker. Developed by Banana Illukit
+    </footer>
+</body>
+
+</html>

@@ -264,3 +264,20 @@ img {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 92, 141, 0.4);
 }
+
+.casual-btn {
+  background: transparent;
+  color: #FF5C8D;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #FF5C8D;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.casual-btn:hover {
+  background-color: transparent;
+  
+}
