@@ -24,54 +24,47 @@
 
     <div class="container" style="max-width: 1000px; margin: 3rem auto;">
         <h3>1. Information We Collect</h3>
-        <p>We do not collect any personally identifiable information (such as real name, email address,
-            phone number, or
-            location).
-        </p>
-        <p>The app only asks for:</p>
+        <p>We do not collect any personally identifiable information such as your real name, email address, phone
+            number, or location.</p>
+        <p>To use the app, we only require the following:</p>
         <ul style="text-align: left;">
-            <li><strong>Username</strong> – any name you choose, used to log in and manage your backups</li>
-            <li><strong>Display Name</strong> – used for greetings within the app only; it can be anything</li>
-            <li><strong>Password</strong> – required to protect your data and manage backups</li>
-            <li><strong>Token</strong> – a randomly generated string provided after login, used only to authorize API
-                requests like backup, restore, or updating credentials</li>
+            <li><strong>Username</strong> – chosen by you, used to access and manage your backups</li>
+            <li><strong>Display Name</strong> – shown in the app interface; you can use any name</li>
+            <li><strong>Password</strong> – used to secure your account and backups</li>
+            <li><strong>Token</strong> – a system-generated code for authorizing app requests (e.g., backup, restore, or
+                updates)</li>
         </ul>
-        <p>None of this information is verified, linked to your identity, or shared with third parties.</p>
+        <p>This information is not linked to your identity, not verified, and never shared with third parties.</p>
 
         <h3>2. Data Storage</h3>
-        <p>
-            Data is stored:
+        <p>Your data is stored in two places:</p>
         <ul style="text-align: left;">
-            <li>Locally on the device using <a href="https://react-native-async-storage.github.io/async-storage/"
-                    target="_blank">
-                    AsyncStorage</a> for automatic login at startup
-            </li>
-            <li>On our secure server for backup and restore feature</li>
+            <li>Locally on your device via <a href="https://react-native-async-storage.github.io/async-storage/"
+                    target="_blank">AsyncStorage</a> for auto-login convenience</li>
+            <li>Securely on our server to support backup and restore functionality</li>
         </ul>
-        We don’t access your device files, media, or contacts.
-        </p>
+        <p>We do not access or request access to your media, files, contacts, or other apps.</p>
 
         <h3>3. Security</h3>
         <ul>
-            <li>Passwords are hashed before being stored on the server</li>
-            <li>We use secure one-time tokens to authorize API requests. These tokens
-                are stored locally on the device and are never exposed to third parties</li>
-            <li>All communication between the app and our server uses HTTPS encryption</li>
+            <li>Your password is hashed before it's saved on our server and cannot be reversed</li>
+            <li>Authentication tokens are stored locally and used to verify app requests</li>
+            <li>All communication between the app and our server is protected by HTTPS encryption</li>
         </ul>
 
         <h3>4. Your Control</h3>
-        <p>The user may:</p>
+        <p>You have full control over your data:</p>
         <ul>
-            <li>Clear app data and uninstall the app anytime to erase stored credentials</li>
-            <li>Update their user credentials securely through the app</li>
-            <li>Delete their account stored on our server</li>
+            <li>You can clear app data or uninstall the app at any time to remove local data</li>
+            <li>You can update your username, display name, or password through the app</li>
+            <li>You may delete your account and backups from our server</li>
         </ul>
 
         <h3>5. Contact</h3>
-        <p>If you have any concerns, contact us at <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=banana.illukit@gmail.com" target="_blank">
-                banana.illukit@gmail.com
-            </a></p>
+        <p>If you have questions or concerns, email us at <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=banana.illukit@gmail.com"
+                target="_blank">banana.illukit@gmail.com</a></p>
+
 
         <div style="flex-direction: row; display: flex; justify-content: end;">
             <a href="/" style="padding: 0;">
