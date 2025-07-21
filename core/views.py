@@ -9,3 +9,6 @@ def privacy(request):
 
 def terms(request):
     return render(request, 'terms.html')
+
+def deleteAccount(request):
+    return render(request, 'delete-account.html')

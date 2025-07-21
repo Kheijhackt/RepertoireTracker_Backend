@@ -5,4 +5,5 @@ urlpatterns = [
     path('', home, name='home'),
     path('privacy/', privacy, name='privacy'),
     path('terms/', terms, name='terms'),
+    path('delete-account/', deleteAccount, name='delete-account'),
 ]

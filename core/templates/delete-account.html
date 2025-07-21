@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Delete Account - Repertoire Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        h3 {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center" style="max-width: 1000px; margin: 3rem auto;">
+        <h1>🗑️ Delete Account</h1>
+        <p><strong>Last Updated:</strong> July 2025</p>
+    </div>
+
+    <div class="container" style="max-width: 1000px; margin: 3rem auto; text-align: left;">
+        <h3>1. What Happens When You Delete</h3>
+        <p>Deleting your account will permanently remove your data from our server, including:</p>
+        <ul>
+            <li>Your username</li>
+            <li>Your display name</li>
+            <li>Your hashed password</li>
+            <li>Your repertoire data</li>
+        </ul>
+        <p>This action cannot be undone.</p>
+
+        <h3>2. How to Delete Your Account</h3>
+        <p>You can delete your account directly through the Repertoire Tracker app:</p>
+        <ol>
+            <li>Open the app</li>
+            <li>Go to the <strong>Backup</strong> screen</li>
+            <li>Login with your username and password</li>
+            <li>Tap <strong>“Delete Account”</strong> and confirm your password</li>
+        </ol>
+
+        <p>If you encounter issues, you can also email us at <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=banana.illukit@gmail.com"
+                target="_blank">banana.illukit@gmail.com</a> with your username. Manual deletion may take up to 48
+            hours.</p>
+
+        <h3>3. Local Data</h3>
+        <p>Deleting your account only removes the online backup. To delete local data:</p>
+        <ul>
+            <li>Clear app storage from your device settings</li>
+            <li>Or uninstall the app entirely</li>
+        </ul>
+
+        <div style="flex-direction: row; display: flex; justify-content: end;">
+            <a href="/" style="padding: 0;">
+                <button class="casual-btn">← Back to Home</button>
+            </a>
+        </div>
+    </div>
+
+    <footer class="text-center" style="margin-top: 4rem; font-size: 0.9rem; color: var(--muted-text);">
+        &copy; 2025 Repertoire Tracker. Developed by Banana IlluKit
+    </footer>
+</body>
+
+</html>
